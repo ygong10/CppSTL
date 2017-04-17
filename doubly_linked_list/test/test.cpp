@@ -6,18 +6,17 @@ namespace test {
         doubly_linked_list<int>* list = new doubly_linked_list<int>();
 
         for (int i = 0; i < 10; i++) {
-            list.push_back(i);
+            list->push_back(i);
         }
 
-        return list.size() == 10;
+        return list->size() == 10;
     }
 
     bool test_push_back() {
         doubly_linked_list<int>* list = new doubly_linked_list<int>();
 
-        list.push_back(2);
+        list->push_back(2);
 
-        return list.back() == 2;
+        return list->back() == 2;
     }
-
 }

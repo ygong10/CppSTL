@@ -22,6 +22,13 @@ class doubly_linked_list {
 		/* Operator= */
 		doubly_linked_list& operator=(const doubly_linked_list& other);
 		
+		/* Iterators */
+		typedef T* iterator;
+		typedef T* const const_iterator;
+
+		const_iterator begin() const;
+		iterator begin();
+
 		/* Capacity */
 		bool empty() const;
 		size_t size() const;
