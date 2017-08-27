@@ -3,6 +3,14 @@ template <typename T>
 doubly_linked_list<T>::doubly_linked_list() : _size(0), _head(nullptr), _tail(nullptr) {}
 
 /* Destructor */
+template <typename T>
+doubly_linked_list<T>::~doubly_linked_list() {
+	while (tail) {
+		auto temp = tail;
+		tail = tail->prev;
+		delete temp;
+	}
+}
 
 /* Operator= */
 

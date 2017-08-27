@@ -17,6 +17,12 @@ bool test_message(std::string msg, bool result) {
 	return result;
 }
 
+std::unordered_map<std::string, bool(*)()> create_test_suite() {
+	std::unordered_map<std::string, bool(*)()> fmap;
+	fmap["test_size_10"] = test::test_size_10;
+	fmap["test_push_back"] = test::test_push_back;
+}
+
 int test_suite(std::unordered_map<std::string, bool(*)()>& fmap) {
 	int total_tests = fmap.size();
 	int passed_tests = 0;
@@ -41,11 +47,13 @@ int test_suite(std::unordered_map<std::string, bool(*)()>& fmap) {
 	return 0;
 }
 
-int main() {
-	std::unordered_map<std::string, bool(*)()> fmap;
-	fmap["test_size_10"] = test::test_size_10;
-	fmap["test_push_back"] = test::test_push_back;
+int main(int argc, char** argv) {
+	std::unordered_map<std::string, bool(*)()> fmap = create_test_suite();
 
+	switch (argc) {
+		case 0 :
+			test_suite(fmap);
+	}
 	test_suite(fmap);
 
 	return 0;
