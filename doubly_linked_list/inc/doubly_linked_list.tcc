@@ -5,9 +5,9 @@ doubly_linked_list<T>::doubly_linked_list() : _size(0), _head(nullptr), _tail(nu
 /* Destructor */
 template <typename T>
 doubly_linked_list<T>::~doubly_linked_list() {
-	while (tail) {
-		auto temp = tail;
-		tail = tail->prev;
+	while (_tail) {
+		auto temp = _tail;
+		_tail = _tail->prev;
 		delete temp;
 	}
 }

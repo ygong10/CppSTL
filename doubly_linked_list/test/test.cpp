@@ -17,6 +17,6 @@ namespace test {
 
         list->push_back(2);
 
-        return list->back() == 2;
+        return list->back() != 2;
     }
 }

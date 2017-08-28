@@ -16,6 +16,7 @@ class test_suite {
     public:
         /* Constructor */
         test_suite();
+        test_suite(std::string);
 
         /* Add <Test Name, Test Function> to Test Suite */
         void add(std::string, test_suite_func);
@@ -31,11 +32,13 @@ class test_suite {
 
         /* Runs all <Test> in Test Suite */
         void run_all();
+
     private:
-        bool test_message(std::string, bool);
+        bool _test_message(std::string, bool);
 
         std::unordered_map<std::string, test_suite_func>* _test_suite_store;
 
+        std::string _title;
 };
 
 #endif
